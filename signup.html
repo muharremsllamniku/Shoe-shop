@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+
+    <div class="container">
+        <form id="signupForm">
+            <h2>Create Account</h2>
+
+            <input type="text" id="fullname" placeholder="Full Name">
+            <input type="email" id="email" placeholder="Email">
+            <input type="password" id="password" placeholder="Password">
+            <input type="password" id="confirmPassword" placeholder="Confirm Password">
+
+            <button type="submit">Sign Up</button>
+
+            <p>Already have an account? <a href="login.html">Log in</a></p>
+
+            <p class="error" id="errorMsg"></p>
+        </form>
+    </div>
+
+    <script>
+document.getElementById("signupForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const name = document.getElementById("fullname").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const pass = document.getElementById("password").value.trim();
+    const cpass = document.getElementById("confirmPassword").value.trim();
+    const msg = document.getElementById("errorMsg");
+
+    msg.style.color = "red";
+
+    // REGEX
+    const nameRegex = /^[A-Za-z\s]{3,}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const passwordRegex = /^.{6,}$/;
+
+    // Kontroll fushat bosh
+    if(name === "" || email === "" || pass === "" || cpass === ""){
+        msg.textContent = "Please fill all fields!";
+        return;
+    }
+
+    // Validimi i emrit
+    if(!nameRegex.test(name)){
+        msg.textContent = "Full name must have at least 3 letters!";
+        return;
+    }
+
+    // Validimi i email-it
+    if(!emailRegex.test(email)){
+        msg.textContent = "Email format is not valid!";
+        return;
+    }
+
+    // Validimi i password-it
+    if(!passwordRegex.test(pass)){
+        msg.textContent = "Password must be at least 6 characters!";
+        return;
+    }
+
+    // Krahasimi i password-eve
+    if(pass !== cpass){
+        msg.textContent = "Passwords do not match!";
+        return;
+    }
+
+    // Sukses
+    msg.style.color = "green";
+    msg.textContent = "Account created successfully!";
+    window.location.href = "login.html";
+});
+</script>
+
+</body>
+</html>
