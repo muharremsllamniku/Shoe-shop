@@ -1,0 +1,160 @@
+*{
+    margin: 0; 
+    padding: 0; 
+    box-sizing: 
+    border-box;
+}
+
+body { 
+    font-family: Arial, sans-serif; 
+}
+
+header {
+     width: 100%; 
+     box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+     background: radial-gradient(#fff,#ffd6d6);
+    
+    }
+
+
+html{
+    scroll-behavior: smooth;
+}
+
+
+
+
+.navbar{
+
+    
+    display: flex; 
+    justify-content: 
+    space-between; 
+    align-items: center; 
+    padding: 20px; 
+    
+
+}
+
+.navbar ul {
+     display: flex;
+     gap: 20px; 
+     list-style: none;
+ }
+        
+ .navbar a {
+     text-decoration: none; 
+     font-weight: bold; 
+}
+
+
+
+#h1{
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 1px;
+    font-size: 42px;
+    margin-left: 55px;
+    color: rgb(0, 0, 0);
+}
+
+.reviews-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    width: 80%;
+    margin: 40px auto;
+    margin-top: 100px;
+    margin-bottom: 120px;
+}
+
+.pr2 {
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+    text-align: left;
+
+}
+
+.pr2 img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.pr2 p:first-of-type {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+.pr3 i {
+    margin-right: 3px;
+    font-size: 18px;
+}
+
+.pr2 p:last-of-type {
+    margin-top: 10px;
+    line-height: 1.5;
+    color: #333;
+}
+
+
+
+
+
+footer { 
+    background: #000; 
+    color: white; 
+    padding: 60px 20px; 
+    text-align: center; 
+}
+
+
+  @media (max-width: 900px) {
+            .navbar ul {
+                 flex-wrap: wrap; 
+                 justify-content: center; 
+                }
+
+            .reviews-container {
+                grid-template-columns: repeat(2, 1fr);
+                }
+
+            .pr2 {
+                padding: 20px;
+                }
+      
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                 flex-direction: column; 
+                 gap: 15px; 
+                }
+
+
+            .reviews-container {
+                 grid-template-columns: 1fr;
+                 width: 95%;
+                }
+
+            .pr2 {
+                 text-align: center;
+                }
+
+            .pr3 {
+                 justify-content: center;
+                 display: flex;
+                }
+
+            .pr2 img {
+                 margin: auto;
+                 display: block;
+                }
+
+            
+           
+        }
